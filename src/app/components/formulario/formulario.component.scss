@@ -1,0 +1,22 @@
+.error {
+    color: tomato;
+    font-size: 12px;
+}
+
+input.ng-valid.ng-touched {
+    border: 1px solid green;
+}
+
+input.ng-invalid.ng-touched {
+    border: 1px solid red;
+}
+
+input:focus {
+    //este estilo no se si hace falta
+    outline: none;
+}
+
+.formulario {
+    margin: 20px;
+    width: 500px;
+}

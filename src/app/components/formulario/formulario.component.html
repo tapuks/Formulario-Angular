@@ -1,0 +1,87 @@
+<div class="formulario">
+  <form [formGroup]="formulario" (ngSubmit)="onSubmit()">
+    <div class="mb-3 form-group">
+      <label>Nombre</label>
+      <input type="text" class="form-control" formControlName="nombre" />
+    </div>
+    <div
+      class="error"
+      *ngIf="formulario.get('nombre')?.errors?.['required'] && formulario.get('nombre')?.['touched']"
+    >
+      El campo es obligatorio
+    </div>
+    <div class="mb-3 form-group">
+      <label>Apellido</label>
+      <input type="text" class="form-control" formControlName="apellido" />
+    </div>
+    <div
+      class="error"
+      *ngIf="formulario.get('apellido')?.errors?.['required'] && formulario.get('apellido')?.['touched']"
+    >
+      El campo es obligatorio
+    </div>
+    <div class="mb-3 form-group">
+      <label>email</label>
+      <input type="text" class="form-control" formControlName="email" />
+    </div>
+    <div
+      class="error"
+      *ngIf="formulario.get('email')?.errors?.['required'] && formulario.get('email')?.['touched']"
+    >
+      El campo es obligatorio
+    </div>
+    <div
+      class="error"
+      *ngIf="formulario.get('email')?.errors?.['pattern'] && formulario.get('email')?.['touched']"
+    >
+      El email no tiene el formato correcto
+    </div>
+
+    <div class="mb-3 form-group">
+      <label>edad</label>
+      <input type="text" class="form-control" formControlName="edad" />
+    </div>
+    <div
+      class="error"
+      *ngIf="formulario.get('edad')?.errors?.['required'] && formulario.get('edad')?.['touched']"
+    >
+      El campo es obligatorio
+    </div>
+    <div
+      class="error"
+      *ngIf="formulario.get('edad')?.errors?.['validateEdad'] && formulario.get('edad')?.['touched']"
+    >
+      La edad tiene que ser mayor o igual a
+      {{formulario.get('edad')?.errors?.['validateEdad']}}
+    </div>
+
+    <div class="mb-3 form-group">
+      <label>departamento</label>
+      <input type="text" class="form-control" formControlName="departamento" />
+    </div>
+
+    <div class="mb-3 form-group">
+      <label>password</label>
+      <input type="password" class="form-control" formControlName="password" />
+    </div>
+    <div
+      class="error"
+      *ngIf="formulario.get('password')?.errors?.['required'] && formulario.get('password')?.['touched']"
+    >
+      El campo es obligatorio
+    </div>
+    <div
+      class="error"
+      *ngIf="formulario.get('password')?.errors?.['validatePassword'] && formulario.get('password')?.['touched']"
+    >
+      {{formulario.get('password')?.errors?.['validatePassword']}}
+    </div>
+    <button
+      class="btn btn-info btn-block"
+      type="submit"
+      [disabled]="!formulario.valid"
+    >
+      Enviar
+    </button>
+  </form>
+</div>
